@@ -1,5 +1,6 @@
 
-const userUrl='https://damp-escarpment-39861.herokuapp.com/users'
+// const baseUrl='https://quiet-ridge-26272.herokuapp.com'
+const baseUrl='http://localhost:3000'
 
 
-export default userUrl
+export default baseUrl
