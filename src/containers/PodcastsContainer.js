@@ -24,6 +24,7 @@ class PodcastsContainer extends Component{
   }
 
   render(){
+    const {isLoggedIn} = this.props
     const sorted_genres=genre_ids.sort((a, b) => (a.name > b.name) ? 1 : -1)
     let podcast
     if(!!this.props.podcasts.podcasts){ //if the podcasts have loaded onto the state successfully then only can we carry out the line below,
@@ -31,15 +32,24 @@ class PodcastsContainer extends Component{
       podcast=this.props.podcasts.podcasts.map(podcast=><Podcast podcast={podcast}/>)
     }
     return (
-      <div className='podcast-container'>
-        <label>Filter by genre: </label>
-        <select id="genre-search" onChange={this.handleOnChange}>
-          <option select="selected"></option>
-          {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
-        </select>
-        <ul>
-          {podcast}
-        </ul>
+      <div className='podcasts-container'>
+        <div className='searched-podcasts'>
+          <label>Filter by genre: </label>
+          <select id="genre-search" onChange={this.handleOnChange}>
+            <option select="selected"></option>
+            {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
+          </select>
+          <ul>
+            {podcast}
+          </ul>
+        </div>
+        <div className='playlist-episodes'>
+          {isLoggedIn ? (
+            <PlaylistContainer />
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
 
     )
@@ -49,7 +59,8 @@ class PodcastsContainer extends Component{
 
 const mapStateToProps = state => {
   return {
-    podcasts:state.podcasts
+    podcasts:state.podcasts,
+    isLoggedIn: state.user.isLoggedIn
   }
 }
 

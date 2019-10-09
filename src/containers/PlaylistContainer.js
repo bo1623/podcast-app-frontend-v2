@@ -6,12 +6,12 @@ import fetchSavedEpisodes from '../actions/fetchSavedEpisodes'
 class PlaylistContainer extends Component{
 
   componentDidMount(){
-    this.props.fetchSavedEpisodes
+    this.props.fetchSavedEpisodes(this.props.username)
   }
 
   render(){
     return(
-
+      
     )
   }
 
