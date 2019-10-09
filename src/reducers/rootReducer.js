@@ -101,6 +101,10 @@ function userReducer(state={isLoggedIn: false,username:''},action){
 function playlistReducer(state=[],action){
 
   switch(action.type){
+
+    case "COMPLETE_PLAYLIST":
+      return action.savedEpisodes
+
     case "ADD_TO_PLAYLIST":
       return [...state,action.podcast]
 

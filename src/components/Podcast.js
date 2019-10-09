@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import EpisodesContainer from '../containers/EpisodesContainer'
 import {connect} from 'react-redux'
 import fetchPodcast from '../actions/fetchPodcast'
 
@@ -35,6 +34,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(null,mapDispatchToProps)(Podcast);
-
-// <Route path='/podcasts/:podcastId' component={EpisodesContainer} />
-// if props.match.podcastID exists, then render the episodes container and manually pass in ID or get it from match within there
