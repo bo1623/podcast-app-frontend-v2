@@ -13,7 +13,7 @@ class Episode extends Component {
   }
 
   render(){
-    const {episode} = this.props
+    const {episode,isLoggedIn} = this.props
     const description=episode.description
 
     //formatting url
@@ -26,7 +26,13 @@ class Episode extends Component {
 
     return(
       <div className="episode">
-        <div className="episode-title">{episode.title} <button onClick={this.handleOnClick} id={episode}>Add to Playlist</button> </div>
+        <div className="episode-title">{episode.title}
+          {isLoggedIn ?( //conditional rendering of button based on whether user is logged in 
+            <button onClick={this.handleOnClick} id={episode}>Add to Playlist</button>
+          ) : (
+            <div></div>
+          )}
+        </div>
         <Markup content={description}/>
         <p>Published: {datestring}</p>
         <p>Duration: {episode.audio_length}</p>
@@ -34,11 +40,18 @@ class Episode extends Component {
       </div>
     )
   }
+}
 
+// <button onClick={this.handleOnClick} id={episode}>Add to Playlist</button>
+
+const mapStateToProps = state => {
+  return{
+    isLoggedIn: state.user.isLoggedIn
+  }
 }
 
 const mapDispatchToProps = dispatch =>({
   addToPlaylist: (episode) => dispatch(postEpisode(episode))
 })
 
-export default connect(null, mapDispatchToProps)(Episode)
+export default connect(mapStateToProps, mapDispatchToProps)(Episode)
