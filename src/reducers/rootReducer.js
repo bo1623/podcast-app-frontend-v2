@@ -62,7 +62,7 @@ function episodesReducer(state=[],action){ //takes json data returned from API f
         return{
           title: episode.title,
           audio_url: episode.listennotes_url,
-          podcast_id: action.podcast.id,
+          listennotes_podcast_id: action.podcast.id,
           episode_id: episode.id,
           audio_length: episode.audio_length_sec,
           description: episode.description,
