@@ -1,8 +1,16 @@
 import React,{Component} from 'react';
 import {Markup} from 'interweave';
+import {connect} from 'react-redux'
+import postEpisode from '../actions/postEpisode'
 
 
-export default class Episode extends Component {
+class Episode extends Component {
+
+
+  handleOnClick=event=>{
+    console.log(event.target.id)
+
+  }
 
   render(){
     const {episode} = this.props
@@ -18,7 +26,7 @@ export default class Episode extends Component {
 
     return(
       <div className="episode">
-        <div className="episode-title">{episode.title} <button>Add to Playlist</button> </div>
+        <div className="episode-title">{episode.title} <button onClick={this.handleOnClick} id={episode}>Add to Playlist</button> </div>
         <Markup content={description}/>
         <p>Published: {datestring}</p>
         <p>Duration: {episode.audio_length}</p>
@@ -28,3 +36,9 @@ export default class Episode extends Component {
   }
 
 }
+
+const mapDispatchToProps = dispatch =>({
+  addToPlaylist: (episode) => dispatch(postEpisode(episode))
+})
+
+export default connect(null, mapDispatchToProps)(Episode)
