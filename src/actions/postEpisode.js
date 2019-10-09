@@ -1,7 +1,7 @@
 import baseUrl from '../fetchUrl'
 
-const postEpisode=(episode,username)=>{
-  const episode_details=Object.assign(JSON.parse(episode),{username:username})
+const postEpisode=(episode)=>{
+  // const episode_details=episode
   return dispatch =>{
     fetch(baseUrl+'/episodes',{
       method: "POST",
@@ -9,7 +9,7 @@ const postEpisode=(episode,username)=>{
         "Content-Type":"application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(episode_details)
+      body: JSON.stringify(episode)
     })
     .then(resp=>resp.json())
     .then(json=>console.log(JSON.parse(json.episode)))
