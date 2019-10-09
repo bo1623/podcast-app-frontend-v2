@@ -72,6 +72,11 @@ function episodesReducer(state=[],action){ //takes json data returned from API f
       return{
         episodes
       }
+    case "CLEAR_EPISODES":
+      return{
+        ...state,
+        episodes:[]
+      }
     default:
       return state
   }

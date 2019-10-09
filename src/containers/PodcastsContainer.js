@@ -13,6 +13,7 @@ class PodcastsContainer extends Component{
 
   componentDidMount(){
     console.log(this.props)
+    this.props.clearEpisodes()
     this.props.fetchPodcasts()
   }
 
@@ -56,7 +57,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPodcasts: () => dispatch(fetchPodcasts()),
-  fetchPodcastsWithId: id => dispatch(fetchPodcasts(id))
+  fetchPodcastsWithId: id => dispatch(fetchPodcasts(id)),
+  clearEpisodes: () => dispatch({type: "CLEAR_EPISODES"})
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(PodcastsContainer)
