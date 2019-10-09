@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
 import fetchSavedEpisodes from '../actions/fetchSavedEpisodes'
+import Episode from '../components/Episode'
 
 
 class PlaylistContainer extends Component{
@@ -10,8 +11,13 @@ class PlaylistContainer extends Component{
   }
 
   render(){
+    const {playlist} = this.props
+
     return(
-      <h1>Playlist Container</h1>
+      <div>
+        <h1>Playlist Container</h1>
+        {playlist.map(episode=><Episode episode={episode} />)}
+      </div>
     )
   }
 
