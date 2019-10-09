@@ -8,8 +8,8 @@ class Episode extends Component {
 
 
   handleOnClick=event=>{
-    console.log(event.target.id)
-
+    console.log(event.target.getAttribute('episode'))
+    this.props.addToPlaylist(event.target.id)
   }
 
   render(){
@@ -27,8 +27,8 @@ class Episode extends Component {
     return(
       <div className="episode">
         <div className="episode-title">{episode.title}
-          {isLoggedIn ?( //conditional rendering of button based on whether user is logged in 
-            <button onClick={this.handleOnClick} id={episode}>Add to Playlist</button>
+          {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
+            <button onClick={this.handleOnClick} id={JSON.stringify(episode)} episode={episode}>Add to Playlist</button>
           ) : (
             <div></div>
           )}

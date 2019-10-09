@@ -1,7 +1,7 @@
 import baseUrl from '../fetchUrl'
 
 const postEpisode=(episode,username)=>{
-  const episode_details={episode,username:username}
+  const episode_details={episode}
   return dispatch =>{
     fetch(baseUrl+'/episodes',{
       method: "POST",
@@ -12,7 +12,7 @@ const postEpisode=(episode,username)=>{
       body: JSON.stringify(episode_details)
     })
     .then(resp=>resp.json())
-    .then(json=>console.log(json))
+    .then(json=>console.log(JSON.parse(json.episode)))
   }
 }
 
