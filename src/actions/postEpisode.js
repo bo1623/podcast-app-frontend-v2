@@ -12,7 +12,7 @@ const postEpisode=(episode)=>{
       body: JSON.stringify(episode)
     })
     .then(resp=>resp.json())
-    .then(json=>console.log(JSON.parse(json.episode)))
+    .then(json=>console.log(json))
   }
 }
 
