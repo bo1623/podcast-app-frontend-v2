@@ -15,7 +15,6 @@ class PlaylistContainer extends Component{
 
     return(
       <div>
-        <h1>Playlist Container</h1>
         {playlist.map(episode=><Episode episode={episode} />)}
       </div>
     )

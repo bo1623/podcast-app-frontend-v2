@@ -27,7 +27,7 @@
 	height: 100%;
 }
 
-.playlist-episodes {
+.playlist-container {
 	display: table-cell;
 	width: 50%;
   overflow-y: scroll; /*makes sidebar scrollable*/
@@ -38,6 +38,11 @@
   /* Set the top and bottom to 0, so that the sidebar is exactly the same height as the viewport */
   /* margin-left: 10px */
 }
+
+/* .playlist-container .playlist-episodes{
+  padding-top: 10%;
+} */
+
 
 .searched-podcasts {
 	display: table-cell;

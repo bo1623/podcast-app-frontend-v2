@@ -44,9 +44,16 @@ class PodcastsContainer extends Component{
             {podcast}
           </ul>
         </div>
-        <div className='playlist-episodes'>
+        <div className='playlist-container'>
           {isLoggedIn ? (
-            <PlaylistContainer />
+            <div>
+              <div classname='title-container'>
+                <h1>Playlist Container</h1>
+              </div>
+              <div className='playlist-episodes'>
+                <PlaylistContainer />
+              </div>
+            </div>
           ) : (
             <div></div>
           )}
