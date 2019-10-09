@@ -16,8 +16,8 @@ class Episode extends Component {
     const {episode,isLoggedIn} = this.props
     const description=episode.description
 
-    Object.assign(episode,{username: this.props.username}) //assign username attribute here to be passed on to post fetch in postEpisode
-    // console.log(episode)
+    let obj= Object.assign({},{username: this.props.username,episode:episode,podcast:this.props.podcast}) //assign username attribute and podcast object here to be passed on to post fetch in postEpisode
+    console.log(obj)
 
     //formatting url
     const url_split=episode.audio_url.split('/e/')
@@ -31,7 +31,7 @@ class Episode extends Component {
       <div className="episode">
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
-            <button onClick={this.handleOnClick} id={JSON.stringify(episode)}>Add to Playlist</button>
+            <button onClick={this.handleOnClick} id={JSON.stringify(obj)}>Add to Playlist</button>
           ) : (
             <div></div>
           )}
@@ -49,7 +49,8 @@ class Episode extends Component {
 const mapStateToProps = state => {
   return{
     isLoggedIn: state.user.isLoggedIn,
-    username: state.user.username
+    username: state.user.username,
+    podcast: state.podcast
   }
 }
 
