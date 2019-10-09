@@ -8,13 +8,16 @@ class Episode extends Component {
 
 
   handleOnClick=event=>{
-    console.log(event.target.getAttribute('episode'))
+    console.log(event.target.id)
     this.props.addToPlaylist(event.target.id)
   }
 
   render(){
     const {episode,isLoggedIn} = this.props
     const description=episode.description
+
+    Object.assign(episode,{username: "random"}) //assign username attribute here to be passed on to post fetch in postEpisode
+    console.log(episode)
 
     //formatting url
     const url_split=episode.audio_url.split('/e/')
@@ -28,7 +31,7 @@ class Episode extends Component {
       <div className="episode">
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
-            <button onClick={this.handleOnClick} id={JSON.stringify(episode)} episode={episode}>Add to Playlist</button>
+            <button onClick={this.handleOnClick} id={JSON.stringify(episode)}>Add to Playlist</button>
           ) : (
             <div></div>
           )}
