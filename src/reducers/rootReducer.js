@@ -107,7 +107,14 @@ function playlistReducer(state=[],action){
       return action.playlist
 
     case "ADD_TO_PLAYLIST":
-      return [...state,action.mod_episode.episode]
+      console.log(state)
+      console.log(action)
+      if(!!state.find(episode=>episode.episode_id===action.mod_episode.episode.episode_id)){
+        //above is checking if the playlist in state already contains the episode that's being posted from add to playlist
+        return state
+      }else{
+        return [...state,action.mod_episode.episode]
+      }
 
     case "REMOVE_FROM_PLAYLIST":
       return state.filter(podcast=>podcast.id!==action.id)
