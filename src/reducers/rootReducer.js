@@ -103,7 +103,8 @@ function playlistReducer(state=[],action){
   switch(action.type){
 
     case "COMPLETE_PLAYLIST":
-      return action.savedEpisodes
+      console.log(action)
+      return action.playlist
 
     case "ADD_TO_PLAYLIST":
       return [...state,action.podcast]

@@ -1,9 +1,13 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
+import fetchSavedEpisodes from '../actions/fetchSavedEpisodes'
 
 
 class PlaylistContainer extends Component{
 
+  componentDidMount(){
+    this.props.fetchSavedEpisodes
+  }
 
   render(){
     return(
@@ -16,6 +20,11 @@ class PlaylistContainer extends Component{
 
 const mapStateToProps=state=>{
   return{
-    savedEpisodes: state.savedEpisodes
+    playlist: state.playlist,
+    username: state.user.username
   }
 }
+
+const mapDispatchToProps=dispatch=>({
+  fetchPlaylist: username=>dispatch(fetchSavedEpisodes(username))
+})
