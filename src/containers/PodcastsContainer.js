@@ -12,6 +12,10 @@ import PlaylistContainer from './PlaylistContainer'
 
 class PodcastsContainer extends Component{
 
+  state={
+    keyword:''
+  }
+
   componentDidMount(){
     console.log(this.props)
     this.props.clearEpisodes()
@@ -22,6 +26,17 @@ class PodcastsContainer extends Component{
     console.log('dropdown list is working')
     const genreId=event.target.value
     this.props.fetchPodcastsWithId(genreId)
+  }
+
+  handleOnChangeKeyword = event => {
+    this.setState({
+      keyword: event.target.value
+    })
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault()
+    console.log(this.state)
   }
 
   render(){
@@ -40,6 +55,19 @@ class PodcastsContainer extends Component{
             <option select="selected"></option>
             {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
           </select>
+
+          <form className="search-form" onSubmit={this.handleOnSubmit}>
+            <label>Search by keyword: </label>
+            <input
+              type="text"
+              placeholder="Enter search term"
+              name="search-keyword"
+              value={this.state.keyword}
+              onChange={this.handleOnChangeKeyword}
+            />
+            <input type="submit" value="Search" />
+          </form>
+
           <ul>
             {podcast}
           </ul>
