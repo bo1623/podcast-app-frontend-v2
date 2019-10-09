@@ -3,6 +3,8 @@ import baseUrl from '../fetchUrl'
 const postEpisode=(episode)=>{
   // const episode_details=episode
   return dispatch =>{
+    const mod_episode=JSON.parse(episode) //converting stringified JSON to JSON
+    dispatch({type:"ADD_TO_PLAYLIST", mod_episode})
     fetch(baseUrl+'/episodes',{
       method: "POST",
       headers: {

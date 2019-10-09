@@ -107,7 +107,8 @@ function playlistReducer(state=[],action){
       return action.playlist
 
     case "ADD_TO_PLAYLIST":
-      return [...state,action.podcast]
+      console.log(action)
+      // return [...state,action.podcast]
 
     case "REMOVE_FROM_PLAYLIST":
       return state.filter(podcast=>podcast.id!==action.id)
