@@ -3,6 +3,7 @@ import EpisodesContainer from './EpisodesContainer'
 import PodcastShow from '../components/PodcastShow'
 import {connect} from 'react-redux'
 import fetchPodcastShow from '../actions/fetchPodcastShow'
+import PlaylistContainer from './PlaylistContainer'
 
 class PodcastContainer extends Component{
 
@@ -11,11 +12,28 @@ class PodcastContainer extends Component{
   }
 
   render(){
+    const {isLoggedIn} = this.props
     return(
-      <div>
-        <PodcastShow podcast={this.props.podcast}/>
-        <EpisodesContainer podcastId={this.props.match.params.podcastid}/>
-      </div>
+      <div className="podcast-show-container">
+        <div className="podcast-show">
+          <PodcastShow podcast={this.props.podcast}/>
+          <EpisodesContainer podcastId={this.props.match.params.podcastid}/>
+        </div>
+        <div className='playlist-container'>
+          {isLoggedIn ? (
+            <div>
+              <div classname='title-container'>
+                <h1>Playlist Container</h1>
+              </div>
+              <div className='playlist-episodes'>
+                <PlaylistContainer />
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
+    </div>
     )
   }
 
@@ -27,7 +45,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => {
   return{
-    podcast: state.podcast
+    podcast: state.podcast,
+    isLoggedIn: state.user.isLoggedIn
   }
 }
 
