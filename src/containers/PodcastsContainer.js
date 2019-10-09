@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import EpisodesContainer from './EpisodesContainer'
 import genre_ids from '../genre_ids'
+import PlaylistContainer from './PlaylistContainer'
 
 class PodcastsContainer extends Component{
 

@@ -6,12 +6,12 @@ import fetchSavedEpisodes from '../actions/fetchSavedEpisodes'
 class PlaylistContainer extends Component{
 
   componentDidMount(){
-    this.props.fetchSavedEpisodes(this.props.username)
+    this.props.fetchPlaylist(this.props.username)
   }
 
   render(){
     return(
-      
+      <h1>Playlist Container</h1>
     )
   }
 
@@ -28,3 +28,5 @@ const mapStateToProps=state=>{
 const mapDispatchToProps=dispatch=>({
   fetchPlaylist: username=>dispatch(fetchSavedEpisodes(username))
 })
+
+export default connect(mapStateToProps,mapDispatchToProps)(PlaylistContainer)
