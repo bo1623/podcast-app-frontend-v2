@@ -22,7 +22,7 @@ class PodcastContainer extends Component{
         <div className='playlist-container'>
           {isLoggedIn ? (
             <div>
-              <div classname='title-container'>
+              <div className='title-container'>
                 <h1>Playlist Container</h1>
               </div>
               <div className='playlist-episodes'>

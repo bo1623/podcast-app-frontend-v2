@@ -15,7 +15,7 @@ class PlaylistContainer extends Component{
 
     return(
       <div>
-        {playlist.map(episode=><Episode episode={episode} />)}
+        {playlist.map(episode=><Episode isPlaylist={true} episode={episode} />)}
       </div>
     )
   }

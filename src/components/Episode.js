@@ -27,11 +27,16 @@ class Episode extends Component {
     const d=new Date(episode.published_date)
     const datestring= d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()
 
+
     return(
       <div className="episode">
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
-            <button onClick={this.handleOnClick} id={JSON.stringify(obj)}>Add to Playlist</button>
+            this.props.isPlaylist ? (
+              <button id={JSON.stringify(obj)}>Remove from Playlist</button>
+            ) : (
+              <button onClick={this.handleOnClick} id={JSON.stringify(obj)}>Add to Playlist</button>
+            )
           ) : (
             <div></div>
           )}
