@@ -16,7 +16,7 @@ class ReviewsContainer extends Component{
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.addReview(this.state.review,this.props.username)
+    this.props.addReview(this.state.review,this.props.username,this.props.podcast_id)
     console.log(this.state.review)
   }
 
@@ -49,14 +49,15 @@ class ReviewsContainer extends Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-  addReview: (review,username) => dispatch(addReview(review,username))
+  addReview: (review,username,podcast_id) => dispatch(addReview(review,username,podcast_id))
 })
 
 const mapStateToProps = state => {
   return{
     username: state.user.username,
     isLoggedIn: state.user.isLoggedIn,
-    reviews: state.reviews
+    reviews: state.reviews,
+    podcast_id: state.podcast.podcast_id
   }
 }
 
