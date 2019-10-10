@@ -108,8 +108,6 @@ function playlistReducer(state=[],action){
       return action.playlist
 
     case "ADD_TO_PLAYLIST":
-      console.log(state)
-      console.log(action)
       if(!!state.find(episode=>episode.episode_id===action.mod_episode.episode.episode_id)){
         //above is checking if the playlist in state already contains the episode that's being posted from add to playlist
         return state
@@ -135,7 +133,8 @@ function reviewsReducer(state=[],action){
 
 
     case "ALL_REVIEWS":
-      if(action.reviews.reviews.length!==0){
+      console.log(action)
+      if(action.reviews.length!==0){
         const reviews = action.reviews.map(review=>
           Object.assign({},{username: review.user.username,text:review.text})
         )
