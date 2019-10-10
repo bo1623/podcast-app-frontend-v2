@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import addReview from '../actions/addReview'
+import fetchReviews from '../actions/fetchReviews'
 
 class ReviewsContainer extends Component{
 
@@ -20,6 +21,11 @@ class ReviewsContainer extends Component{
     this.setState({
       review:''
     })
+  }
+
+  handleShowReviews = () => {
+    console.log(this.props.podcast_id)
+    this.props.fetchReviews(this.props.podcast_id)
   }
 
   render(){
@@ -44,6 +50,7 @@ class ReviewsContainer extends Component{
         ) : (
           <p>Please log in to leave a review</p>
         )}
+        <button onClick={this.handleShowReviews} className="show-reviews">Show Reviews</button>
       </div>
     )
   }
@@ -51,7 +58,8 @@ class ReviewsContainer extends Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-  addReview: (review,username,podcast_id) => dispatch(addReview(review,username,podcast_id))
+  addReview: (review,username,podcast_id) => dispatch(addReview(review,username,podcast_id)),
+  fetchReviews: podcast_id => dispatch(fetchReviews(podcast_id))
 })
 
 const mapStateToProps = state => {

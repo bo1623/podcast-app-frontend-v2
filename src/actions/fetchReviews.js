@@ -14,3 +14,6 @@ const fetchReviews = (podcast_id) =>{
     .then(json=>console.log(json))
   }
 }
+
+
+export default fetchReviews
