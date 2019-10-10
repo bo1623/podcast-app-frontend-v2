@@ -132,6 +132,14 @@ function reviewsReducer(state=[],action){
     case "ADD_REVIEW": //for instantly rendering new review on the DOM
       return [...state,{username:action.username,text:action.text}]
 
+
+    case "ALL_REVIEWS":
+      console.log(action.reviews)
+      const reviews = action.reviews.map(review=>
+        Object.assign({},{username: review.user.username,text:review.text})
+      )
+      return reviews
+
     default:
       return state
   }

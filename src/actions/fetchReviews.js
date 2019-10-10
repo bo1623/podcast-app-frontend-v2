@@ -11,7 +11,7 @@ const fetchReviews = (podcast_id) =>{
       body: JSON.stringify({podcast_id:podcast_id})
     })
     .then(resp=>resp.json())
-    .then(json=>console.log(json))
+    .then(json=>dispatch({type:"ALL_REVIEWS",reviews:json}))
   }
 }
 
