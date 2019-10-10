@@ -13,7 +13,8 @@ import {compose} from 'redux'
 class ReviewsContainer extends Component{
 
   state={
-    review: ''
+    review: '',
+    buttonWasClicked: false
   }
 
   componentDidMount(){
@@ -37,6 +38,9 @@ class ReviewsContainer extends Component{
   }
 
   handleShowReviews = event => {
+    this.setState({
+      buttonWasClicked: true
+    })
     this.props.fetchReviews(this.props.podcast_id)
     const reviews=document.querySelectorAll('.individual-reviews')
     if(event.target.innerText==="Show Reviews"){
@@ -54,11 +58,11 @@ class ReviewsContainer extends Component{
 
   render(){
     const {isLoggedIn,reviews} = this.props
-    const reviewsPresent = !!reviews
+    // const reviewsPresent = !!reviews
     function renderReviews(){
-      if(reviewsPresent){
+      if(reviews.length!==0){
         return reviews.map(review=><Review review={review} />)
-      }else{
+      }else if(reviews.length===0 && this.state.buttonWasClicked){
         return <p>This podcast doesn't have any reviews yet. Be the first to leave one!</p>
       }
     }
