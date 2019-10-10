@@ -131,7 +131,7 @@ function reviewsReducer(state=[],action){
 
     case "ALL_REVIEWS":
       console.log(action)
-      if(action.reviews.length!==0){
+      if(action.reviews.length!==0 && action.reviews.status!==500){
         const reviews = action.reviews.map(review=>
           Object.assign({},{username: review.user.username,text:review.text})
         )

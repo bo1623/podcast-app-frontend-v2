@@ -104,7 +104,8 @@ const mapStateToProps = state => {
     reviews: state.reviews,
     podcast_id: state.podcast.podcast_id,
     reviews: state.reviews,
-    reviewButtonWasClicked: state.button.clicked
+    reviewButtonWasClicked: state.button.clicked,
+    podcast: state.podcast
   }
 }
 
