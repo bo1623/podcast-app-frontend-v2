@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {Markup} from 'interweave';
 import {connect} from 'react-redux'
 import postEpisode from '../actions/postEpisode'
+import deleteFromPlaylist from '../actions/deleteFromPlaylist'
 
 
 class Episode extends Component {
@@ -13,7 +14,7 @@ class Episode extends Component {
   }
 
   handleOnClickDelete = event => {
-
+    this.props.deleteFromPlaylist(event.target.id)
   }
 
   render(){
@@ -37,7 +38,7 @@ class Episode extends Component {
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
             this.props.isPlaylist ? (
-              <button id={episode.episode_id}>Remove from Playlist</button>
+              <button onClick={this.handleOnClickDelete} id={episode.episode_id}>Remove from Playlist</button>
             ) : (
               <button onClick={this.handleOnClick} id={JSON.stringify(obj)}>Add to Playlist</button>
             )
@@ -65,7 +66,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch =>({
   addToPlaylist: (episode) => dispatch(postEpisode(episode)),
-  deleteFromPlaylist: (episode_id) => dispatch(deleteEpisode(episode_id))
+  deleteFromPlaylist: (episode_id) => dispatch(deleteFromPlaylist(episode_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Episode)
