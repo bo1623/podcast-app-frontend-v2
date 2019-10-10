@@ -8,7 +8,8 @@ const rootReducer=combineReducers({
   episodes: episodesReducer,
   podcast: podcastReducer,
   user: userReducer,
-  reviews: reviewsReducer
+  reviews: reviewsReducer,
+  button: buttonReducer
 })
 
 export default rootReducer;
@@ -149,6 +150,16 @@ function reviewsReducer(state=[],action){
         ...state,
         reviews:[]
       }
+
+    default:
+      return state
+  }
+}
+
+function buttonReducer(state={clicked: false},action){
+  switch(action.type){
+    case "CLICK_REVIEW":
+      return ({clicked: true})
 
     default:
       return state

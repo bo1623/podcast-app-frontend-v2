@@ -14,7 +14,6 @@ class ReviewsContainer extends Component{
 
   state={
     review: '',
-    buttonWasClicked: false
   }
 
   componentDidMount(){
@@ -38,9 +37,7 @@ class ReviewsContainer extends Component{
   }
 
   handleShowReviews = event => {
-    this.setState({
-      buttonWasClicked: true
-    })
+    this.props.logClick()
     this.props.fetchReviews(this.props.podcast_id)
     const reviews=document.querySelectorAll('.individual-reviews')
     if(event.target.innerText==="Show Reviews"){
@@ -57,12 +54,12 @@ class ReviewsContainer extends Component{
   }
 
   render(){
-    const {isLoggedIn,reviews} = this.props
+    const {isLoggedIn,reviews,reviewButtonWasClicked} = this.props
     // const reviewsPresent = !!reviews
     function renderReviews(){
       if(reviews.length!==0){
         return reviews.map(review=><Review review={review} />)
-      }else if(reviews.length===0 && this.state.buttonWasClicked){
+      }else if(reviews.length===0 && reviewButtonWasClicked){
         return <p>This podcast doesn't have any reviews yet. Be the first to leave one!</p>
       }
     }
@@ -97,7 +94,8 @@ class ReviewsContainer extends Component{
 const mapDispatchToProps = dispatch => ({
   addReview: (review,username,podcast_id) => dispatch(addReview(review,username,podcast_id)),
   fetchReviews: podcast_id => dispatch(fetchReviews(podcast_id)),
-  clearReviews: () => dispatch({type:"CLEAR_REVIEWS"})
+  clearReviews: () => dispatch({type:"CLEAR_REVIEWS"}),
+  logClick: () => dispatch({type:"CLICK_REVIEW"})
 })
 
 const mapStateToProps = state => {
@@ -106,7 +104,8 @@ const mapStateToProps = state => {
     isLoggedIn: state.user.isLoggedIn,
     reviews: state.reviews,
     podcast_id: state.podcast.podcast_id,
-    reviews: state.reviews
+    reviews: state.reviews,
+    reviewButtonWasClicked: state.button.clicked
   }
 }
 
