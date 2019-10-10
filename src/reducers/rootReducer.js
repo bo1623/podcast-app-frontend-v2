@@ -7,7 +7,8 @@ const rootReducer=combineReducers({
   playlist: playlistReducer,
   episodes: episodesReducer,
   podcast: podcastReducer,
-  user: userReducer
+  user: userReducer,
+  reviews: reviewsReducer
 })
 
 export default rootReducer;
@@ -123,4 +124,15 @@ function playlistReducer(state=[],action){
       return state
   }
 
+}
+
+
+function reviewsReducer(state=[],action){
+  switch(action.type){
+    case "ADD_REVIEW":
+      console.log(action)
+
+    default:
+      return state
+  }
 }
