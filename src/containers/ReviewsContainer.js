@@ -38,6 +38,10 @@ class ReviewsContainer extends Component{
   handleShowReviews = event => {
     this.props.logClick()
     this.props.fetchReviews(this.props.podcast_id)
+    // const notice=document.querySelector('.no-reviews-yet')
+    // if(notice!==null){
+    //   notice.style.display="block"
+    // }
     const reviews=document.querySelectorAll('.individual-reviews')
     if(event.target.innerText==="Show Reviews"){
       event.target.innerText="Collapse Reviews"
@@ -59,7 +63,12 @@ class ReviewsContainer extends Component{
       if(reviews.length!==0){
         return reviews.map(review=><Review review={review} />)
       }else if(reviews.length===0 && reviewButtonWasClicked){
-        return <p>This podcast doesn't have any reviews yet. Be the first to leave one!</p>
+        const divStyle={display: 'block'}
+        return(
+          <div className='no-reviews-yet' style={divStyle}>
+            <p>This podcast doesn't have any reviews yet. Be the first to leave one!</p>
+          </div>
+        )
       }
     }
 
