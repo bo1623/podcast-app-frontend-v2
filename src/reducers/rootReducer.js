@@ -135,10 +135,21 @@ function reviewsReducer(state=[],action){
 
     case "ALL_REVIEWS":
       console.log(action.reviews)
-      const reviews = action.reviews.map(review=>
-        Object.assign({},{username: review.user.username,text:review.text})
-      )
-      return reviews
+      if(!!action.reviews){
+        const reviews = action.reviews.map(review=>
+          Object.assign({},{username: review.user.username,text:review.text})
+        )
+        return reviews
+      }else{
+        return state
+      }
+
+    case "CLEAR_REVIEWS":
+      console.log("clear reviews working")
+      return{
+        ...state,
+        reviews:[]
+      }
 
     default:
       return state
