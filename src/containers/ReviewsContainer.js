@@ -13,11 +13,16 @@ class ReviewsContainer extends Component{
     })
   }
 
+  handleOnSubmit = event => {
+    event.preventDefault()
+    console.log(this.state.review)
+  }
+
   render(){
     return(
       <div>
         <h3>Reviews Container</h3>
-        <form className='review-form'>
+        <form className='review-form' onSubmit={this.handleOnSubmit}>
           <textarea
             id='review-input'
             rows='4'
