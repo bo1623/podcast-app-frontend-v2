@@ -129,8 +129,8 @@ function playlistReducer(state=[],action){
 
 function reviewsReducer(state=[],action){
   switch(action.type){
-    case "ADD_REVIEW":
-      console.log(action)
+    case "ADD_REVIEW": //for instantly rendering new review on the DOM
+      return [...state,{username:action.username,text:action.text}]
 
     default:
       return state
