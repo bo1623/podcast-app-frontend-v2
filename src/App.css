@@ -57,10 +57,15 @@
   padding-top: 10%;
 } */
 
-
 .searched-podcasts {
 	display: table-cell;
 	width: 50%;
 	vertical-align: top;
   padding-left: 20px;
+}
+
+
+.individual-reviews{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

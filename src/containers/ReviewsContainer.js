@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import addReview from '../actions/addReview'
 import fetchReviews from '../actions/fetchReviews'
+import Review from '../components/Review'
 
 class ReviewsContainer extends Component{
 
@@ -29,7 +30,7 @@ class ReviewsContainer extends Component{
   }
 
   render(){
-    const {isLoggedIn} = this.props
+    const {isLoggedIn,reviews} = this.props
 
     return(
       <div>
@@ -51,6 +52,7 @@ class ReviewsContainer extends Component{
           <p>Please log in to leave a review</p>
         )}
         <button onClick={this.handleShowReviews} className="show-reviews">Show Reviews</button>
+        {reviews.map(review=><Review review={review} />)}
       </div>
     )
   }
@@ -67,7 +69,8 @@ const mapStateToProps = state => {
     username: state.user.username,
     isLoggedIn: state.user.isLoggedIn,
     reviews: state.reviews,
-    podcast_id: state.podcast.podcast_id
+    podcast_id: state.podcast.podcast_id,
+    reviews: state.reviews
   }
 }
 
