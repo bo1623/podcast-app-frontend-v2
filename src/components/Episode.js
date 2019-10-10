@@ -12,12 +12,16 @@ class Episode extends Component {
     this.props.addToPlaylist(event.target.id)
   }
 
+  handleOnClickDelete = event => {
+
+  }
+
   render(){
     const {episode,isLoggedIn} = this.props
     const description=episode.description
 
     let obj= Object.assign({},{username: this.props.username,episode:episode,podcast:this.props.podcast}) //assign username attribute and podcast object here to be passed on to post fetch in postEpisode
-    console.log(obj)
+    //we need this obj because we want to pass all this data to the backend
 
     //formatting url
     const url_split=episode.audio_url.split('/e/')
@@ -33,7 +37,7 @@ class Episode extends Component {
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
             this.props.isPlaylist ? (
-              <button id={JSON.stringify(obj)}>Remove from Playlist</button>
+              <button id={episode.episode_id}>Remove from Playlist</button>
             ) : (
               <button onClick={this.handleOnClick} id={JSON.stringify(obj)}>Add to Playlist</button>
             )
@@ -60,7 +64,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch =>({
-  addToPlaylist: (episode) => dispatch(postEpisode(episode))
+  addToPlaylist: (episode) => dispatch(postEpisode(episode)),
+  deleteFromPlaylist: (episode_id) => dispatch(deleteEpisode(episode_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Episode)
