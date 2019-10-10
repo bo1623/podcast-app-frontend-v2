@@ -6,7 +6,6 @@ export default class PodcastShow extends Component {
   render(){
     const {podcast} = this.props
     const description=podcast.description
-    console.log(this.props)
     return(
       <div className='podcast'>
         <img src={podcast.image} />

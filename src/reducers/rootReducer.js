@@ -18,7 +18,6 @@ function podcastsReducer(state=[],action){ //renders list of podcasts
 
   switch(action.type){
     case "ADD_PODCAST":
-      console.log(action)
       const podcasts = action.podcasts.map(podcast => {
         return {
           podcast_id: podcast.id,
@@ -41,7 +40,6 @@ function podcastsReducer(state=[],action){ //renders list of podcasts
 function podcastReducer(state=[],action){ //use to set state of podcast key for the podcast show page
   switch(action.type){
     case "SHOW_PODCAST":
-      console.log(action)
       const podcast={
         description: action.podcast.description,
         podcast_id: action.podcast.id,
@@ -59,7 +57,6 @@ function podcastReducer(state=[],action){ //use to set state of podcast key for 
 function episodesReducer(state=[],action){ //takes json data returned from API fetch request returning a specific episode based on id
   switch(action.type){
     case "ADD_EPISODES":
-      console.log(action)
       const episodes=action.podcast.episodes.map(episode=>{
         return{
           title: episode.title,
@@ -145,10 +142,7 @@ function reviewsReducer(state=[],action){
 
     case "CLEAR_REVIEWS":
       console.log("clear reviews working")
-      return{
-        ...state,
-        reviews:[]
-      }
+      return []
 
     default:
       return state

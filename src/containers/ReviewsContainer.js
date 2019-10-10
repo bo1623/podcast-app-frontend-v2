@@ -18,8 +18,7 @@ class ReviewsContainer extends Component{
 
   componentDidMount(){
     //need to clear reviews in state otherwise they will remain even after going from one podcast show page to another
-    console.log(this.props)
-    // this.props.clearReviews()
+    this.props.clearReviews()
   }
 
   handleOnChange = event => {
