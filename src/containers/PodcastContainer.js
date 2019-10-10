@@ -4,6 +4,7 @@ import PodcastShow from '../components/PodcastShow'
 import {connect} from 'react-redux'
 import fetchPodcastShow from '../actions/fetchPodcastShow'
 import PlaylistContainer from './PlaylistContainer'
+import ReviewsContainer from './ReviewsContainer'
 
 class PodcastContainer extends Component{
 
@@ -17,6 +18,7 @@ class PodcastContainer extends Component{
       <div className="podcast-show-container">
         <div className="podcast-show">
           <PodcastShow podcast={this.props.podcast}/>
+          <ReviewsContainer />
           <EpisodesContainer podcastId={this.props.match.params.podcastid}/>
         </div>
         <div className='playlist-container'>
