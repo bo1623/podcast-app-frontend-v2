@@ -13,3 +13,5 @@ const addReview = (review,username) =>{
     })
   }
 }
+
+export default addReview

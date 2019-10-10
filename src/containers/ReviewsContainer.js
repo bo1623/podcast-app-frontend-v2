@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import addReview from '../actions/addReview'
 
 class ReviewsContainer extends Component{
 
@@ -15,6 +16,7 @@ class ReviewsContainer extends Component{
 
   handleOnSubmit = event => {
     event.preventDefault()
+    this.props.addReview(this.state.review,this.props.username)
     console.log(this.state.review)
   }
 
@@ -40,4 +42,14 @@ class ReviewsContainer extends Component{
 
 }
 
-export default ReviewsContainer
+const mapDispatchToProps = dispatch => ({
+  addReview: (review,username) => dispatch(addReview(review,username))
+})
+
+const mapStateToProps = state => {
+  return{
+    username: state.user.username
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)
