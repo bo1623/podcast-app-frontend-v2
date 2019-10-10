@@ -14,7 +14,7 @@ class Episode extends Component {
   }
 
   handleOnClickDelete = event => {
-    this.props.deleteFromPlaylist(event.target.id)
+    this.props.deleteFromPlaylist(event.target.id,event.target.getAttribute('username'))
   }
 
   render(){
@@ -38,7 +38,7 @@ class Episode extends Component {
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
             this.props.isPlaylist ? (
-              <button onClick={this.handleOnClickDelete} id={episode.episode_id}>Remove from Playlist</button>
+              <button onClick={this.handleOnClickDelete} id={episode.episode_id} username={this.props.username}>Remove from Playlist</button>
             ) : (
               <button onClick={this.handleOnClick} id={JSON.stringify(obj)}>Add to Playlist</button>
             )
@@ -66,7 +66,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch =>({
   addToPlaylist: (episode) => dispatch(postEpisode(episode)),
-  deleteFromPlaylist: (episode_id) => dispatch(deleteFromPlaylist(episode_id))
+  deleteFromPlaylist: (episode_id,username) => dispatch(deleteFromPlaylist(episode_id,username))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Episode)
