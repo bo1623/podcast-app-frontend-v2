@@ -29,7 +29,7 @@ class ReviewsContainer extends Component{
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.addReview(this.state.review,this.props.username,this.props.podcast_id)
+    this.props.addReview(this.state.review,this.props.username,this.props.podcast)
     this.setState({
       review:''
     })
