@@ -21,21 +21,27 @@ class ReviewsContainer extends Component{
   }
 
   render(){
+    const {isLoggedIn} = this.props
+
     return(
       <div>
         <h3>Reviews Container</h3>
-        <form className='review-form' onSubmit={this.handleOnSubmit}>
-          <textarea
-            id='review-input'
-            rows='4'
-            cols='70'
-            onChange={this.handleOnChange}
-            name="review"
-            value={this.state.review}
-            placeholder="Any comments on this podcast? Leave a review!"
-          />
-          <input type="submit" value="Submit Review" />
-        </form>
+        {isLoggedIn ? (
+          <form className='review-form' onSubmit={this.handleOnSubmit}>
+            <textarea
+              id='review-input'
+              rows='4'
+              cols='70'
+              onChange={this.handleOnChange}
+              name="review"
+              value={this.state.review}
+              placeholder="Any comments on this podcast? Leave a review!"
+            />
+            <input type="submit" value="Submit Review" />
+          </form>
+        ) : (
+          <p>Please log in to leave a review</p>
+        )}
       </div>
     )
   }
@@ -48,7 +54,9 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => {
   return{
-    username: state.user.username
+    username: state.user.username,
+    isLoggedIn: state.user.isLoggedIn,
+    reviews: state.reviews
   }
 }
 
