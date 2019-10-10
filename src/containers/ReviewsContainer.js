@@ -24,9 +24,20 @@ class ReviewsContainer extends Component{
     })
   }
 
-  handleShowReviews = () => {
-    console.log(this.props.podcast_id)
+  handleShowReviews = event => {
     this.props.fetchReviews(this.props.podcast_id)
+    const reviews=document.querySelectorAll('.individual-reviews')
+    if(event.target.innerText==="Show Reviews"){
+      event.target.innerText="Collapse Reviews"
+      for(let i=0;i<reviews.length;i++){
+        reviews[i].style.display="block"
+      }
+    }else{
+      event.target.innerText="Show Reviews"
+      for(let i=0;i<reviews.length;i++){
+        reviews[i].style.display="none"
+      }
+    }
   }
 
   render(){
@@ -34,7 +45,9 @@ class ReviewsContainer extends Component{
 
     return(
       <div>
-        <h3>Reviews Container</h3>
+        <h3>Reviews</h3>
+        <button onClick={this.handleShowReviews} className="show-reviews">Show Reviews</button>
+        {reviews.map(review=><Review review={review} />)}
         {isLoggedIn ? (
           <form className='review-form' onSubmit={this.handleOnSubmit}>
             <textarea
@@ -51,8 +64,6 @@ class ReviewsContainer extends Component{
         ) : (
           <p>Please log in to leave a review</p>
         )}
-        <button onClick={this.handleShowReviews} className="show-reviews">Show Reviews</button>
-        {reviews.map(review=><Review review={review} />)}
       </div>
     )
   }
