@@ -103,7 +103,6 @@ function playlistReducer(state=[],action){
   switch(action.type){
 
     case "COMPLETE_PLAYLIST":
-      console.log(action)
       return action.playlist
 
     case "ADD_TO_PLAYLIST":
@@ -117,7 +116,8 @@ function playlistReducer(state=[],action){
       }
 
     case "REMOVE_FROM_PLAYLIST":
-      return state.filter(podcast=>podcast.id!==action.id)
+      return state.filter(episode=>episode.episode_id!==action.episode_id)
+      //instantly removes deleted episode from playlist on the DOM
 
     default:
       return state
