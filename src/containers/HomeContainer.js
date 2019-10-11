@@ -36,7 +36,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => {
   return{
-    randomEpisode: state.randomEpisode
+    randomEpisode: state.randomEpisode,
+    // podcast: state.randomEpisode.
   }
 }
 

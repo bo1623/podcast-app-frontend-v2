@@ -187,7 +187,9 @@ function episodeReducer(state=[],action){
         episode_id: episode.id,
         audio_length: episode.audio_length_sec,
         description: episode.description,
-        published_date: episode.pub_date_ms
+        published_date: episode.pub_date_ms,
+        podcast_title: episode.podcast_title,
+        image:episode.image
       }
       return randomEpisode
 

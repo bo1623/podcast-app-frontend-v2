@@ -32,9 +32,23 @@ class Episode extends Component {
     const d=new Date(episode.published_date)
     const datestring= d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()
 
+    let image
+    let podcast_title
+    let randomPodcastDetails
+    if(episode.image!==undefined){ //additional properties for randomEpisode
+      image=episode.image
+      podcast_title=episode.podcast_title
+      randomPodcastDetails=(
+        <div>
+          <img src={image} />
+          <h2>{podcast_title}</h2>
+        </div>
+      )
+    }
 
     return(
       <div className="episode">
+        {randomPodcastDetails}
         <div className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
             this.props.isPlaylist ? (
