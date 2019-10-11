@@ -176,9 +176,9 @@ function noticeReducer(state='',action){
 }
 
 function episodeReducer(state=[],action){
-  console.log(action)
   switch(action.type){
     case "RANDOM_EPISODE":
+      console.log(action)
       const episode=action.episode
       const randomEpisode={
         title: episode.title,
