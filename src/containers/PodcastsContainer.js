@@ -43,35 +43,34 @@ class PodcastsContainer extends Component{
       podcast=this.props.podcasts.podcasts.map(podcast=><Podcast podcast={podcast}/>)
     }
     return (
-      <div className='podcasts-container'>
-        <div className='searched-podcasts'>
+      <div>
+        <div className="genre-search-bar">
           <label>Filter by genre: </label>
           <select id="genre-search" onChange={this.handleOnChange}>
             <option select="selected"></option>
             {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
           </select>
-
-
-          <ul>
-            {podcast}
-          </ul>
         </div>
-        <div className='playlist-container'>
-          {isLoggedIn ? (
-            <div>
-              <div classname='title-container'>
-                <h1>Playlist Container</h1>
+        <div className='podcasts-container'>
+          <div className='searched-podcasts'>
+              {podcast}
+          </div>
+          <div className='playlist-container'>
+            {isLoggedIn ? (
+              <div>
+                <div classname='title-container'>
+                  <h1>Playlist Container</h1>
+                </div>
+                <div className='playlist-episodes'>
+                  <PlaylistContainer />
+                </div>
               </div>
-              <div className='playlist-episodes'>
-                <PlaylistContainer />
-              </div>
-            </div>
-          ) : (
-            <div></div>
-          )}
+            ) : (
+              <div></div>
+            )}
+          </div>
         </div>
       </div>
-
     )
   }
 

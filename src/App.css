@@ -43,7 +43,7 @@
 
 .playlist-container {
 	display: table-cell;
-	width: 50%;
+	width: 40%;
   overflow-y: scroll; /*makes sidebar scrollable*/
 	vertical-align: top;
   top:0; /*makes sidebar scrollable*/
@@ -51,6 +51,7 @@
   position:fixed; /*makes sidebar scrollable*/
   /* Set the top and bottom to 0, so that the sidebar is exactly the same height as the viewport */
   /* margin-left: 10px */
+  padding-top: 5%
 }
 
 /* .playlist-container .playlist-episodes{
@@ -59,7 +60,7 @@
 
 .searched-podcasts {
 	display: table-cell;
-	width: 50%;
+	width: 60%;
 	vertical-align: top;
   padding-left:40px;
 }
@@ -67,8 +68,9 @@
 .searched-podcasts .podcast{
   text-align: left;
   vertical-align: middle;
-  width: 80%;
-  height: 50%
+  width: 30%;
+  height: 50%;
+  float: left
 }
 
 
@@ -135,4 +137,9 @@ button{
 
 .podcast img{
   cursor: pointer;
+}
+
+.genre-search-bar{
+  padding-left: 42px;
+  padding-bottom: 10px
 }

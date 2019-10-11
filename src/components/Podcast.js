@@ -16,7 +16,7 @@ class Podcast extends Component{
     const {podcast} = this.props
     return(
         <div className='podcast'>
-          <Tooltip className="tooltip-box" background="blue" tooltip={<img src={podcast.image}/>}>
+          <Tooltip className="tooltip-box" tooltip={<img src={podcast.image}/>}>
             Description: <Markup content={podcast.description}/>
           </Tooltip>
           <div className='podcast-details' >
