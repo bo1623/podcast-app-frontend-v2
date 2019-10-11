@@ -27,7 +27,8 @@ function podcastsReducer(state=[],action){ //renders list of podcasts
           thumbnail: podcast.thumbnail,
           image: podcast.image,
           total_episodes: podcast.total_episodes,
-          latest_publication: podcast.latest_pub_date_ms
+          latest_publication: podcast.latest_pub_date_ms,
+          description: podcast.description
         }
       })
       return {

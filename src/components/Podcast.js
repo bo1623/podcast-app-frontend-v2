@@ -6,6 +6,9 @@ import {
 } from 'react-router-dom';
 import {connect} from 'react-redux'
 import fetchPodcast from '../actions/fetchPodcast'
+// import Tooltip from 'react-tooltip-lite';
+import Tooltip from 'react-png-tooltip'
+
 
 class Podcast extends Component{
 
@@ -13,7 +16,9 @@ class Podcast extends Component{
     const {podcast} = this.props
     return(
         <div className='podcast'>
-          <img src={podcast.image} />
+          <Tooltip tooltip={<img src={podcast.image}/>}>
+            {podcast.description}
+          </Tooltip>
           <div className='podcast-details' >
             <Link
               key={podcast.podcast_id}
