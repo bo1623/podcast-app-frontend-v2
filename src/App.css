@@ -127,9 +127,9 @@ button{
   padding-bottom: 5px;
   padding-right: 10px;
   padding-left: 10px;
-  background-color: rgb(0,139,92);
+  background-color: rgb(255,206,0);
   border-radius: 30px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 14px
 }
@@ -165,13 +165,19 @@ button{
 }
 
 .reviews-container button{
-  margin-left: 0px
-}
-
-.submit-button{
+  margin-left: 0px;
+  margin: auto ;
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: rgb(0,139,92);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px
 }
+
 
 .login-form input{
   font-size: 16px;
@@ -195,6 +201,24 @@ button{
   padding-right: 10px;
   padding-left: 10px;
   background-color: rgb(255,71,19);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px
+}
+
+.review-form #review-input{
+  font-size: 16px;
+  margin-bottom: 10px
+}
+
+.submit-button{
+  margin: auto ;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: rgb(0,139,92);
   border-radius: 30px;
   color: white;
   font-weight: bold;
