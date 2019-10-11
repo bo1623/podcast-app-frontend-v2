@@ -69,7 +69,8 @@
 .searched-podcasts .podcast{
   text-align: left;
   vertical-align: middle;
-  width: 30%;
+  width: 45%;
+  /* width: 30%; */
   height: 50%;
   float: left
 }
