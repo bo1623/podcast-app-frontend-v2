@@ -74,9 +74,10 @@ class ReviewsContainer extends Component{
     }
 
     return(
-      <div>
+      <div className="reviews-container">
         <h3>Reviews</h3>
         <button onClick={this.handleShowReviews} className="show-reviews">Show Reviews</button>
+        <p></p>
         {renderReviews()}
         {isLoggedIn ? (
           <form className='review-form' onSubmit={this.handleOnSubmit}>
@@ -89,7 +90,8 @@ class ReviewsContainer extends Component{
               value={this.state.review}
               placeholder="Any comments on this podcast? Leave a review!"
             />
-            <input type="submit" value="Submit Review" />
+            <br></br>
+            <input className="submit-button" type="submit" value="Submit Review" />
           </form>
         ) : (
           <p>Please log in to leave a review</p>

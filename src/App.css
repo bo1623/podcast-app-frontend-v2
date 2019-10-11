@@ -35,7 +35,7 @@
 
 .podcast-show{
 	display: table-cell;
-	width: 50%;
+	width: 60%;
 	vertical-align: top;
   padding-left: 20px;
   padding-right: 40px;
@@ -126,9 +126,17 @@
 
 
 button{
-  margin: auto 10px;
+  margin: auto ;
+  margin-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: rgb(0,139,92);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px
 }
 
 .tooltip-box{
@@ -137,9 +145,35 @@ button{
 
 .podcast img{
   cursor: pointer;
+  margin: auto 30%
+}
+
+.individual-reviews{
+  width: 70%;
+  height: auto;
+  margin-right: 10px;
+  border: 1px solid rgb(255,71,19);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  padding-left:20px
+}
+
+.individual-reviews .review-username{
+  color: rgb(255,71,19);
+  font-weight: bold;
 }
 
 .genre-search-bar{
   padding-left: 42px;
   padding-bottom: 10px
+}
+
+.reviews-container button{
+  margin-left: 0px
+}
+
+.submit-button{
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
