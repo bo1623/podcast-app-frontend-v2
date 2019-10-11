@@ -9,7 +9,8 @@ const rootReducer=combineReducers({
   podcast: podcastReducer,
   user: userReducer,
   reviews: reviewsReducer,
-  button: buttonReducer
+  button: buttonReducer,
+  notice: noticeReducer
 })
 
 export default rootReducer;
@@ -153,6 +154,20 @@ function buttonReducer(state={clicked: false},action){
   switch(action.type){
     case "CLICK_REVIEW":
       return ({clicked: true})
+
+    default:
+      return state
+  }
+}
+
+function noticeReducer(state='',action){
+  switch(action.type){
+    case "RENDER_NOTICE": //for notice saying that no reviews have been left on the podcast
+      return action.text
+
+    case "CLEAR_NOTICE":
+    console.log(action);
+      return action.text
 
     default:
       return state
