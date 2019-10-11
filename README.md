@@ -10,6 +10,10 @@ After this, run `npm install` in your terminal to install the relevant packages 
 
 Subsequently, copy and clone the rails backend of this app from https://github.com/bo1623/podcast-api-backend, a separate README has been prepared for getting the backend up and running.  
 
-If you are planning to run the app using localhost database, make sure to change the baseUrl in 'src/fetchUrl.js' to the localhost url of your backend. E.g. baseUrl = 'http://localhost:3000'
+If you are planning to run the app using localhost database, make sure to change the baseUrl in `src/fetchUrl.js` to the localhost url of your backend. E.g.
+
+```
+baseUrl = 'http://localhost:3000
+```
 
 Third party APIs were used in the production of this app, feel free to check out https://www.listennotes.com/ for your podcast API needs.
