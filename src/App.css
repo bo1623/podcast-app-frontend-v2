@@ -65,7 +65,7 @@
 }
 
 .searched-podcasts .podcast{
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   width: 80%;
   height: 50%
@@ -130,6 +130,9 @@ button{
 }
 
 .tooltip-box{
-  width: 40px;
-  font-style: italic;
+  background-color: rgb(255,177,148);
+}
+
+.podcast img{
+  cursor: pointer;
 }
