@@ -28,11 +28,6 @@ class PodcastsContainer extends Component{
     this.props.fetchPodcastsWithId(genreId)
   }
 
-  handleOnChangeKeyword = event => {
-    this.setState({
-      keyword: event.target.value
-    })
-  }
 
   handleOnSubmit = event => {
     event.preventDefault()
@@ -56,17 +51,6 @@ class PodcastsContainer extends Component{
             {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
           </select>
 
-          <form className="search-form" onSubmit={this.handleOnSubmit}>
-            <label>Search by keyword: </label>
-            <input
-              type="text"
-              placeholder="Enter search term"
-              name="search-keyword"
-              value={this.state.keyword}
-              onChange={this.handleOnChangeKeyword}
-            />
-            <input type="submit" value="Search" />
-          </form>
 
           <ul>
             {podcast}

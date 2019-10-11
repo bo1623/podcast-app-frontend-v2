@@ -61,7 +61,14 @@
 	display: table-cell;
 	width: 50%;
 	vertical-align: top;
-  padding-left: 20px;
+  padding-left:40px;
+}
+
+.searched-podcasts .podcast{
+  text-align: center;
+  vertical-align: middle;
+  width: 80%;
+  height: 50%
 }
 
 
@@ -110,9 +117,6 @@
   padding-top: 20px
 }
 
-.searched-podcasts{
-  padding-left:40px
-}
 
 .login-form{
   padding-left: 12px
