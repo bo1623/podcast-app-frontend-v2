@@ -43,7 +43,7 @@
 
 .playlist-container {
 	display: table-cell;
-	width: 40%;
+	width: 38%;
   overflow-y: scroll; /*makes sidebar scrollable*/
 	vertical-align: top;
   top:0; /*makes sidebar scrollable*/
@@ -157,7 +157,11 @@ button{
 
 .genre-search-bar{
   padding-left: 42px;
-  padding-bottom: 10px
+  padding-bottom: 10px;
+}
+
+.genre-search-bar #genre-search{
+  font-size: 14px
 }
 
 .reviews-container button{

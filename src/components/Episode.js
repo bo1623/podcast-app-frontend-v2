@@ -18,6 +18,16 @@ class Episode extends Component {
   }
 
   render(){
+    function secondsToHours(seconds){
+      const hours = Math.floor(seconds/3600)
+      const minutes = Math.floor((seconds%3600)/60)
+      if(hours===0){
+        return `${minutes} minutes`
+      }else{
+        return `${hours} hours and ${minutes} minutes`
+      }
+    }
+
     const {episode,isLoggedIn} = this.props
     const description=episode.description
 
@@ -62,7 +72,7 @@ class Episode extends Component {
         </h3>
         <Markup content={description}/>
         <p>Published: {datestring}</p>
-        <p>Duration: {episode.audio_length}</p>
+        <p>Duration: {secondsToHours(episode.audio_length)}</p>
         <iframe src={new_url} height="300px" width="100%"></iframe>
       </div>
     )
