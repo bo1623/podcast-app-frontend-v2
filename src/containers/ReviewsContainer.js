@@ -20,6 +20,7 @@ class ReviewsContainer extends Component{
     //need to clear reviews in state otherwise they will remain even after going from one podcast show page to another
     this.props.clearReviews()
     this.props.clearNotice()
+    //clearing notice so that it doesn't remain even after navigating to new podcast show page
   }
 
   handleOnChange = event => {
@@ -40,27 +41,18 @@ class ReviewsContainer extends Component{
   handleShowReviews = event => {
     this.props.logClick()
     this.props.fetchReviews(this.props.podcast_id)
-    // const notice=document.querySelector('.no-reviews-yet')
-    // if(notice!==null){
-    //   notice.style.display="block"
-    // }
+
     const reviews=document.querySelectorAll('.individual-reviews')
     if(event.target.innerText==="Show Reviews"){
       event.target.innerText="Collapse Reviews"
       for(let i=0;i<reviews.length;i++){
         reviews[i].style.display="block"
-        // const noReview=document.querySelector('.no-reviews-yet')
-        // console.log(noReview)
-        // noReview.style.display="none"
       }
       this.props.renderNotice()
     }else{
       event.target.innerText="Show Reviews"
       for(let i=0;i<reviews.length;i++){
         reviews[i].style.display="none"
-        // const noReview=document.querySelector('.no-reviews-yet')
-        // console.log(noReview)
-        // noReview.style.display="none"
       }
     }
   }
