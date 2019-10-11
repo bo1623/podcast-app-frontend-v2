@@ -49,7 +49,7 @@ class Episode extends Component {
     return(
       <div className="episode">
         {randomPodcastDetails}
-        <div className="episode-title">{episode.title}
+        <h3 className="episode-title">{episode.title}
           {isLoggedIn ?( //conditional rendering of button based on whether user is logged in
             this.props.isPlaylist ? (
               <button onClick={this.handleOnClickDelete} id={episode.episode_id} username={this.props.username}>Remove from Playlist</button>
@@ -59,7 +59,7 @@ class Episode extends Component {
           ) : (
             <div></div>
           )}
-        </div>
+        </h3>
         <Markup content={description}/>
         <p>Published: {datestring}</p>
         <p>Duration: {episode.audio_length}</p>

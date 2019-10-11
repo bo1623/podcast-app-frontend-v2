@@ -73,3 +73,34 @@
 /* .no-reviews-yet{
   display: none
 } */
+
+.homepage-podcast{
+  display: table;
+  width: 45%;
+  height: 25%;
+  margin: 0 auto;
+  padding-top: 5%
+}
+
+.homepage-podcast .episode{
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.homepage-details{
+  display: table;
+  width: 60%;
+  height: 25%;
+  margin: 0 auto;
+}
+
+.homepage-details .homepage-details-children{
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#random-quote{
+  font-style: italic;
+}
