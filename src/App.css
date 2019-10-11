@@ -37,7 +37,7 @@
 	display: table-cell;
 	width: 60%;
 	vertical-align: top;
-  padding-left: 20px;
+  padding-left: 40px;
   padding-right: 40px;
 }
 
@@ -120,11 +120,6 @@
 }
 
 
-.login-form{
-  padding-left: 12px
-}
-
-
 button{
   margin: auto ;
   margin-left: 10px;
@@ -136,7 +131,7 @@ button{
   border-radius: 30px;
   color: white;
   font-weight: bold;
-  font-size: 16px
+  font-size: 14px
 }
 
 .tooltip-box{
@@ -176,4 +171,32 @@ button{
 .submit-button{
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.login-form input{
+  font-size: 16px;
+  margin: auto 5px
+}
+
+.login-form{
+  padding-left: 12px;
+  margin: 15px auto
+}
+
+.login-form h3{
+  color: rgb(255,71,19)
+}
+
+.login-submit{
+  margin: auto ;
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: rgb(255,71,19);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px
 }

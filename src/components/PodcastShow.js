@@ -10,7 +10,7 @@ export default class PodcastShow extends Component {
       <div className='podcast'>
         <img src={podcast.image} />
         <div className='podcast-details' >
-          <h3>{podcast.title}</h3>
+          <h1>{podcast.title}</h1>
           <h3>Description:</h3>
           <Markup content={description}/>
           <br></br>

@@ -29,7 +29,7 @@ class Login extends Component{
         <form id="login" onSubmit={this.handleOnSubmit}>
           <label>Username: </label>
             <input onChange={this.handleOnChange} type="text" name="username" placeholder="Enter username" value={this.state.username} />
-            <input type="submit" value="Login" />
+            <input className="login-submit" type="submit" value="Login" />
         </form>
       </div>
     )
