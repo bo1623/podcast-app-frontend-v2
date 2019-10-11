@@ -10,7 +10,8 @@ const rootReducer=combineReducers({
   user: userReducer,
   reviews: reviewsReducer,
   button: buttonReducer,
-  notice: noticeReducer
+  notice: noticeReducer,
+  randomEpisode: episodeReducer
 })
 
 export default rootReducer;
@@ -168,6 +169,27 @@ function noticeReducer(state='',action){
     case "CLEAR_NOTICE":
     console.log(action);
       return action.text
+
+    default:
+      return state
+  }
+}
+
+function episodeReducer(state=[],action){
+  console.log(action)
+  switch(action.type){
+    case "RANDOM_EPISODE":
+      const episode=action.episode
+      const randomEpisode={
+        title: episode.title,
+        audio_url: episode.listennotes_url,
+        listennotes_podcast_id: episode.podcast_id,
+        episode_id: episode.id,
+        audio_length: episode.audio_length_sec,
+        description: episode.description,
+        published_date: episode.pub_date_ms
+      }
+      return randomEpisode
 
     default:
       return state

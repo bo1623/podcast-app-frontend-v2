@@ -7,8 +7,8 @@ const fetchRandomEpisode = () => {
         'X-ListenAPI-Key':'b5ad33b748ea42279366ccafabbd2d87'
       }
     }).then(resp=>resp.json())
-    .then(json=>console.log(json))
-  // .then(json=>dispatch({type:"SHOW_PODCAST", podcast: json}))
+    // .then(json=>console.log(json))
+    .then(json=>dispatch({type:"RANDOM_EPISODE", episode: json}))
   }
 }
 
