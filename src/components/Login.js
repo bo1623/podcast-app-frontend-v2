@@ -20,7 +20,7 @@ class Login extends Component{
     const el=document.getElementById('login')
     el.remove()
     const login_form=document.querySelector('.login-form')
-    login_form.innerHTML+=`Current User: ${this.state.username}`
+    login_form.innerHTML+=`<h3>Current User: ${this.state.username}</h3>`
   }
 
   render(){
