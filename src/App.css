@@ -104,3 +104,16 @@
 #random-quote{
   font-style: italic;
 }
+
+.navbar{
+  padding-left: 30px;
+  padding-top: 20px
+}
+
+.searched-podcasts{
+  padding-left:40px
+}
+
+.login-form{
+  padding-left: 12px
+}
