@@ -24,9 +24,9 @@ class HomeContainer extends Component{
           <div className="homepage-details-children">
             <h1>Welcome To The Podcast App</h1>
             <p>Find all the podcasts you need to stay updated on global issues and your interests.
-            Click on the "podcast" link above to filter your podcasts by genre</p>
+            Click on the "Podcasts" link above to filter your podcasts by genre</p>
             <p>Log in with a username and you can save your favorite episodes to a personalized playlist!</p>
-            <p>Not sure what to listen to? Click on the "Just Listen" button below for a random episode</p>
+            <p>Not sure what to listen to? Click on the "Listen Now" button below for a random episode</p>
             <p id="random-quote">"Life is like a box of chocolates. You never know what you're gonna get.” - Forrest Gump</p>
 
             <button onClick={this.handleOnClick} className="random-episode-button">Listen Now</button>
