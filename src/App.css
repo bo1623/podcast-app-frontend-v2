@@ -255,3 +255,19 @@ button{
   font-size: 30px;
   font-weight: bold;
 }
+
+.popup-container {
+  background-color: rgb(255,177,148);
+  width: 30%;
+  /* padding:10px; */
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  z-index: 5
+}
+
+#podcast-description-popup{
+  font-weight: bold;
+}
