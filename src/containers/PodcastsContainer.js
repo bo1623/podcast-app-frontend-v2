@@ -2,19 +2,10 @@ import React,{Component} from 'react';
 import fetchPodcasts from '../actions/fetchPodcasts'
 import {connect} from 'react-redux'
 import Podcast from '../components/Podcast'
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import EpisodesContainer from './EpisodesContainer'
 import genre_ids from '../genre_ids'
 import PlaylistContainer from './PlaylistContainer'
 
 class PodcastsContainer extends Component{
-
-  state={
-    keyword:''
-  }
 
   componentDidMount(){
     console.log(this.props)

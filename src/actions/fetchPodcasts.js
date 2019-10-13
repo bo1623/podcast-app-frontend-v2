@@ -6,7 +6,6 @@ const fetchPodcasts = (id) => {
     url='https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=93'
   }
   return dispatch => {
-    // dispatch({type:"LOADING_CATS"})
     fetch(url,{
       method: 'GET',
       headers: {
